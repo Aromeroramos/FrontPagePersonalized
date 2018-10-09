@@ -1,2 +1,2 @@
 # FrontPagePersonalized
-This fronpage is to show all your bookmarks in your home.
+This Frontpage is to show all your bookmarks in your home.

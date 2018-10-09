@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  background: #f8f8f2;
+  /*background: #222;*/
+  font-family:"Roboto","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  margin:0;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.container {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.google {
+  margin: 20px auto 20px;
+  max-height: 200px;
+  max-width: 300px;
+}
+.icon {
+  max-width: 32px;
+  /*position: absolute;*/
+}
+.textbox {
+background-color: #fff;
+height: 38px;
+width: 350px;
+vertical-align: top;
+border: 1px solid #d9d9d9;
+padding: 0 10px;
+}
+.textbox:focus {
+outline: none;
+border-color: #1da1f2;
+}
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.section.main {
+  margin-top: 20px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.list {
+  flex: 1 250px;
+  display: block;
+  max-width: 250px;
+  margin: 5px 5px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1); }
+.list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list ul li {
+  background: #f8f8f2;
+  height: 40px;
+  color: #f8f8f2;
+  line-height: 40px;
+}
+.list.social ul li:hover,.list.google-apps ul li:hover, .list.travel ul li:hover, .list.ricing ul li:hover,
+.list.personal ul li:hover,.list.work ul li:hover, .list.news ul li:hover, .list.entertainment ul li:hover{
+  background: #282a36;
+  color: #fff;
+}
+.list.social ul li:hover .link-text,.list.google-apps ul li:hover .link-text, .list.travel ul li:hover .link-text, .list.ricing ul li:hover .link-text,
+.list.personal ul li:hover .link-text,.list.work ul li:hover .link-text, .list.news ul li:hover .link-text, .list.entertainment ul li:hover .link-text{
+  color: #fff;
+}
+
+
+.list ul li a {
+  position: relative;
+  padding-left: 15px;
+  display: block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  /*vertical-align: middle;*/
+}
+.link-text {
+  position:absolute;
+  margin-top: -4px;
+  margin-left: 20px;
+}
+
+.list ul li:nth-child(2n) {
+  background: #f8f8f2;
+}
+.header{
+  margin: 0;
+}
+.list h1 {
+  position: absolute;
+  display: inline-block;
+  color: #fff;
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /*padding: 5px 20px;*/
+  font-size: 20px;
+  font-weight: 400; }
+.list.social.header,.list.personal.header {
+  background: #282a36;
+}
+.list.ricing.header,.list.google-apps.header, .list.work.header{
+  background: #282a36;
+}
+.list.news.header {
+  background: #282a36;
+}
+.list.entertainment.header, .list.travel.header{
+  background: #282a36;
+}
+.hicon {
+  max-width: 32px;
+  max-height: 32px;
+  height: auto;
+  width: auto;
+  margin: 4px 15px;
+}
+.expandable {
+  margin-top: 0;
+  justify-content: center;
+  display: flex;
+
+}
+.expandable:hover > #expand{
+  opacity: 0.2;
+
+}
+#expand {
+  transition: opacity 1s;
+  display: block;
+  opacity: 0;
+  margin-top: 100px;
+  max-height: 200px;
+  max-width: 200px;
+  height: auto;
+  width: auto;
+}
+#expand:hover {
+  display: block;
+}
+/*.notify-badge {
+  position: absolute;
+  display: inline;
+  background: red;
+  text-align: center;
+  border-radius: 1px 1px 1px 1px;
+  color: white;
+  padding: 5px 5px;
+  font-size: 10px;
+  left: 47px;
+  top: 4px;
+}
+*/
+.hidden{
+  display: none;
+}
+.expanded {
+  display: block;
+  min-width: 300;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+.expanded h1 {
+  /*position: absolute;*/
+  display: inline-block;
+  color: #eee;
+  /*margin-left: -10px;*/
+  margin-top: -14px;
+  margin-bottom: -14px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.expanded.twitch.header {
+  background: #6441A5;
+
+}
+.expanded ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.twitch a {
+  color: #6441A5;
+}
+
+/* ###################################### */
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #f8f8f2;
+    color: #282a36;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #f8f8f2;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f8f2;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .city-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #282a36;
+    background-color: #f8f8f2;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content:hover .city-item:hover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #f8f8f2;
+  background-color: #282a36;
+  display: block;
+  }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
