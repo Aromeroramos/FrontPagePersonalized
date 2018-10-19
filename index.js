@@ -5,7 +5,8 @@ var webFunc4 = "https://web.whatsapp.com/";
 var webFunc5 = "https://www.trello.com/";
 function myFunc1() {
    window.location = webFunc1;
-   document.getElementById('matrix').src = "images/facebook.svg";
+   document.getElementById("matrix").src="images/facebook.svg";
+   document.write('<img id="myPhoto" width="50" height="50">');
 }
 function myFunc2() {
    window.location = webFunc2;
