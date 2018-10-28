@@ -13,66 +13,76 @@
   <body>
     <div class="container">
       <div class="jumbotron text-center">
-      <a href="http://google.com">
-        <img className="google" alt="Google logo" src="images/ggl.png"></img>
-      </a>
-      <form action="http://www.google.com/search">
-        <input className="textbox" name="q" placeholder="Google search" autoComplete="on" maxLength="60"></input>
-      </form>
-    </div>
-    </div>
-    <div class="section">
-        <div class="list travel">
-          <div class="list travel header">
-            <img src="images/route.svg" class="hicon" alt="" /><h1>Travel</h1>
-          </div>
-          <ul>
-            <li>
-              <a href="https://www.google.fr/flights/?f=0"><img src="images/worldwide.svg" class="icon" alt="" /><span class="link-text">Google Flights</span></a>
-            </li>
-          </ul>
-        </div>
+        <a href="http://google.com">
+          <img className="google" alt="Google logo" src="images/ggl.png"></img>
+        </a>
+        <form action="http://www.google.com/search">
+          <input className="textbox" name="q" placeholder="Google search" autoComplete="on" maxLength="60"></input>
+        </form>
       </div>
-
-  <template id="productrow">
-    <div>
-      <div></div>
-      <ul>
-        <li class="record"><a href=""></a></li>
-        <li></li>
+    </div>
+    <div class="list social" id="list">
+      <div class="list social header" id="divheader">
+      </div>
+      <ul id="caja1">
       </ul>
     </div>
-  </template>
-  <script>// Test to see if the browser supports the HTML template element by checking
-  // for the presence of the template element's content attribute.
-  if ('content' in document.createElement('template')) {
+    <template id="tmplt2">
+      <div class="list social">
+        <div class="list social header">
+          <h1></h1>
+        </div>
+        <ul>
+          <li><a href=""><img class="icon" src="" alt=""><span class="link-text"></span></a></li>
+        </ul>
+      </div>
+    </template>
+  <script>
 
-      // Instantiate the table with the existing HTML tbody
-      // and the row with the template
-      var t = document.querySelector('#productrow');
+  var myArr = [{headername: "social",
+              myObject: [
+                {name: "web1", web : "http://www.facebook.com", imagen : "images/facebook.svg"},
+                {name: "web2", web : "https://twitter.com/", imagen : "images/facebook.svg"},
+                {name: "web3", web : "https://www.messenger.com/", imagen : "images/facebook.svg"},
+                {name: "web4", web : "https://web.whatsapp.com/", imagen : "images/facebook.svg"},
+                {name: "web5", web : "https://www.trello.com/", imagen : "images/facebook.svg"}]},
+              {headername: "news222",
+              myObject: [
+                {name: "web6", web : "http://www.facebook.com", imagen : "images/facebook.svg"},
+                {name: "web7", web : "https://twitter.com/", imagen : "images/facebook.svg"},
+                {name: "web8", web : "https://www.messenger.com/", imagen : "images/facebook.svg"},
+                {name: "web9", web : "https://web.whatsapp.com/", imagen : "images/facebook.svg"},
+                {name: "web10", web : "https://www.trello.com/", imagen : "images/facebook.svg"}]}]
+  ;
 
-      // Clone the new row and insert it into the table
-      var tb = document.querySelector("div");
-      var clone = document.importNode(t.content, true);
-      td = clone.querySelectorAll("li");
-      td[0].textContent = "1235646565";
-      td[1].textContent = "Stuff";
+if ('content' in document.createElement('template')) {
 
-      tb.appendChild(clone);
+  var variable1 = document.querySelector("#tmplt");
+  var variable4 = document.querySelector("#tmplt2");
+  var variable2 = document.querySelector("#caja1");
+  var variable3 = document.querySelector("#list");
 
-      // Clone the new row and insert it into the table
-      var clone2 = document.importNode(t.content, true);
-      td = clone2.querySelectorAll("li");
-      td[0].textContent = "0384928528";
-      td[1].textContent = "Acme Kidney Beans 2";
-
-      tb.appendChild(clone2);
-
-  } else {
-      // Find another way to add the rows to the table because
-      // the HTML template element is not supported.
+  for (var j in myArr) {
+    var rowCloned = document.importNode(variable4.content, true);
+    var linkComponent = rowCloned.querySelector("h1");
+    linkComponent.textContent = myArr[j].headername;
+        // for (var i in myArr) {
+        //   var newArr = myArr[i].myObject;
+        //   var rowCloned2 = document.importNode(variable1.content, true);
+        //   var linkComponent2 = rowCloned.querySelector("a");
+        //   linkComponent.textContent = newArr[i].name;
+        //   linkComponent.href = newArr[i].web;
+        //   //console.log(newArr[i].name);
+        //
+        //   variable2.appendChild(rowCloned2);
+        // }
+        variable3.appendChild(rowCloned);
   }
-  //# sourceURL=pen.js
+
+} else {
+  console.log("Templates not supported");
+}
+
   </script>
   </body>
 </html>
