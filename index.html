@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--<script src="index.js"></script>-->
   </head>
   <body>
     <div class="container">
@@ -21,68 +20,87 @@
         </form>
       </div>
     </div>
-    <div class="list social" id="list">
-      <div class="list social header" id="divheader">
-      </div>
-      <ul id="caja1">
-      </ul>
+    <div class="section" id="divheader">
     </div>
-    <template id="tmplt2">
+
+    <template id="tmpltBox">
       <div class="list social">
-        <div class="list social header">
-          <h1></h1>
+        <div class="list social header" id="divheader">
+          <img src="" class="hicon" alt=""/><h1>Texto</h1>
         </div>
         <ul>
-          <li><a href=""><img class="icon" src="" alt=""><span class="link-text"></span></a></li>
         </ul>
       </div>
     </template>
+    <template id="tmplt2">
+          <li><a href=""><img class="icon" src="" alt=""><span class="link-text"></span></a></li>
+    </template>
   <script>
 
-  var myArr = [{headername: "social",
+  var myArr = [{headername: "Estimation Team",
               myObject: [
-                {name: "web1", web : "http://www.facebook.com", imagen : "images/facebook.svg"},
-                {name: "web2", web : "https://twitter.com/", imagen : "images/facebook.svg"},
-                {name: "web3", web : "https://www.messenger.com/", imagen : "images/facebook.svg"},
-                {name: "web4", web : "https://web.whatsapp.com/", imagen : "images/facebook.svg"},
-                {name: "web5", web : "https://www.trello.com/", imagen : "images/facebook.svg"}]},
-              {headername: "news222",
+                {name: "Web1", web : "", imagen : "images/santander.png"},
+                {name: "Web2", web : "http://myper.santanderuk.corp/myPER/login/login", imagen : ""},
+                {name: "Web3", web : "http://prbprojects.santanderuk.gs.corp/projects/Welcome.do", imagen : ""}],
+              headimg: "images/social.svg"},
+              {headername: "Develop",
               myObject: [
-                {name: "web6", web : "http://www.facebook.com", imagen : "images/facebook.svg"},
-                {name: "web7", web : "https://twitter.com/", imagen : "images/facebook.svg"},
-                {name: "web8", web : "https://www.messenger.com/", imagen : "images/facebook.svg"},
-                {name: "web9", web : "https://web.whatsapp.com/", imagen : "images/facebook.svg"},
-                {name: "web10", web : "https://www.trello.com/", imagen : "images/facebook.svg"}]}]
+                {name: "gitHub", web : "https://github.com/", imagen : "images/github.svg"},
+                {name: "w3schools", web : "https://www.w3schools.com/nodejs/nodejs_get_started.asp", imagen : ""},
+                {name: "Can I Use", web : "https://caniuse.com/", imagen : ""},
+                {name: "Jira", web : "https://uk-jira.almuk.santanderuk.corp/secure/Dashboard.jspa", imagen : ""}],
+              headimg: "images/4chan.svg"},
+              {headername: "Personal",
+              myObject: [
+                {name: "Google translate", web : "https://translate.google.co.uk/", imagen : "images/googletranslate.svg"},
+                {name: "Wordreference", web : "http://www.wordreference.com/", imagen : ""},
+                {name: "Bank-Holidays", web : "https://www.gov.uk/bank-holidays", imagen : ""},
+                {name: "Trello", web : "https://www.trello.com/", imagen : "images/trello.svg"}],
+              headimg: "images/diamond.svg"}
+              ]
   ;
-
 if ('content' in document.createElement('template')) {
 
-  var variable1 = document.querySelector("#tmplt");
-  var variable4 = document.querySelector("#tmplt2");
-  var variable2 = document.querySelector("#caja1");
-  var variable3 = document.querySelector("#list");
+  var tmpltBox = document.querySelector("#tmpltBox");
+  var tmplt2 = document.querySelector("#tmplt2");
 
-  for (var j in myArr) {
-    var rowCloned = document.importNode(variable4.content, true);
-    var linkComponent = rowCloned.querySelector("h1");
-    linkComponent.textContent = myArr[j].headername;
-        // for (var i in myArr) {
-        //   var newArr = myArr[i].myObject;
-        //   var rowCloned2 = document.importNode(variable1.content, true);
-        //   var linkComponent2 = rowCloned.querySelector("a");
-        //   linkComponent.textContent = newArr[i].name;
-        //   linkComponent.href = newArr[i].web;
-        //   //console.log(newArr[i].name);
-        //
-        //   variable2.appendChild(rowCloned2);
-        // }
-        variable3.appendChild(rowCloned);
+  var divheader = document.querySelector("#divheader");
+
+for (var i in myArr) {
+  var rowCloned = document.importNode(tmpltBox.content, true);
+  var linkComponent2 = rowCloned.querySelector("h1");
+  linkComponent2.textContent =myArr[i].headername;
+  var linkComponent3 = rowCloned.querySelector("img");
+  linkComponent3.src =myArr[i].headimg;
+
+  for (var z in myArr[i].myObject) {
+    var itemRowData =  myArr[i].myObject[z];
+    var liCloned = document.importNode(tmplt2.content, true);
+    liCloned.querySelector("span").textContent=itemRowData.name;
+    liCloned.querySelector("a").href=itemRowData.web;
+    liCloned.querySelector("img").src=itemRowData.imagen;
+    rowCloned.querySelector("ul").appendChild(liCloned);
   }
+
+  divheader.appendChild(rowCloned);
+}
+// for (var p in myArr){
+//   var newArr = myArr[p].myObject;
+//
+//   for (var i in newArr) {
+//
+//   var rowCloned = document.importNode(tmplt2.content, true);
+//   var linkComponent = rowCloned.querySelector("a");
+//   linkComponent.textContent = newArr[i].name;
+//   linkComponent.href = newArr[i].web;
+//   //console.log(newArr[i].name);
+//   caja1.appendChild(rowCloned);
+//   }
+// }
 
 } else {
   console.log("Templates not supported");
 }
-
   </script>
   </body>
 </html>
