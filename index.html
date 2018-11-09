@@ -1,107 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <title>frontpage</title>
-    <meta charset="utf-8">
-    <meta name="theme-color" content="#222">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="jumbotron text-center">
-        <a href="http://google.com">
-          <img className="google" alt="Google logo" src="images/ggl.png"></img>
-        </a>
-        <form action="http://www.google.com/search">
-          <input className="textbox" name="q" placeholder="Google search" autoComplete="on" maxLength="60"></input>
-        </form>
+   <head>
+      <title>frontpage</title>
+      <meta charset="utf-8">
+      <meta name="theme-color" content="#222">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="index.js"></script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="jumbotron text-center">
+            <a href="http://google.com">
+            <img className="google" alt="Google logo" src="images/ggl.png"></img>
+            </a>
+            <form action="http://www.google.com/search">
+               <input className="textbox" name="q" placeholder="Google search" autoComplete="on" maxLength="60"></input>
+            </form>
+         </div>
       </div>
-    </div>
-    <div class="section" id="divheader">
-    </div>
-
-    <template id="tmpltBox">
-      <div class="list social">
-        <div class="list social header" id="divheader">
-          <img src="" class="hicon" alt=""/><h1>Texto</h1>
-        </div>
-        <ul>
-        </ul>
+      <div class="section" id="divheader">
       </div>
-    </template>
-    <template id="tmplt2">
-          <li><a href=""><img class="icon" src="" alt=""><span class="link-text"></span></a></li>
-    </template>
-  <script>
+      <template id="bookmarksContainer">
+         <div class="list social">
+            <div class="list social header" id="divheader">
+               <img src="" class="hicon" alt="" />
+               <h1>Texto</h1>
+            </div>
+            <ul>
+            </ul>
+         </div>
+      </template>
+      <template id="bookmark">
+         <li>
+            <a href=""><img class="icon" src="" alt=""><span class="link-text"></span></a>
+         </li>
+      </template>
+      <!-- This is a workarround to load a json ish file from a loca drive -->
+      <script src="frankie.js" ></script>
+      <script>
+         //                              ...@ @..
+         //                              ..(‘o‘)..
+         //                              .º(___)º.
+         //    This is an Anonymous Function. Search in youtube and learn more about it!!
+         (function() {
+             console.log("Anonymous function");
+         })();
 
-  var myArr = [{headername: "Estimation Team",
-              myObject: [
-                {name: "Web1", web : "", imagen : ""},
-                {name: "Web2", web : "", imagen : ""},
-                {name: "Web3", web : "", imagen : ""}],
-              headimg: "images/social.svg"},
-              {headername: "Develop",
-              myObject: [
-                {name: "gitHub", web : "https://github.com/", imagen : "images/github.svg"},
-                {name: "w3schools", web : "https://www.w3schools.com/nodejs/nodejs_get_started.asp", imagen : ""},
-                {name: "Can I Use", web : "https://caniuse.com/", imagen : ""},
-                {name: "Jira", web : "", imagen : ""}],
-              headimg: "images/4chan.svg"},
-              {headername: "Personal",
-              myObject: [
-                {name: "Google translate", web : "https://translate.google.co.uk/", imagen : "images/googletranslate.svg"},
-                {name: "Wordreference", web : "http://www.wordreference.com/", imagen : ""},
-                {name: "Bank-Holidays", web : "https://www.gov.uk/bank-holidays", imagen : ""},
-                {name: "Trello", web : "https://www.trello.com/", imagen : "images/trello.svg"}],
-              headimg: "images/diamond.svg"}
-              ]
-  ;
-if ('content' in document.createElement('template')) {
+         //                              ...@ @..
+         //                              ..(‘o‘)..
+         //                              .º(___)º.
+         //    This is an Anonymous Function using function arrow explression. Take a look the following youtuber, it one of the best for my taste.
+         //    https://www.youtube.com/watch?v=6sQDTgOqh-I
+         (() => {
+             console.log("Anonymous function using 'Arrow '");
+         })();
 
-  var tmpltBox = document.querySelector("#tmpltBox");
-  var tmplt2 = document.querySelector("#tmplt2");
+         //                              ...@ @..
+         //                              ..(‘o‘)..
+         //                              .º(___)º.
+         //    Now lets develop the javascript we have as a javascript "ish" module.
+         //    https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc
+         var myCoreIndexCode = (() => {
 
-  var divheader = document.querySelector("#divheader");
+             // Sadly, as javascript is an interpreted languague, order matters. Is for that reason that this
+             // function is in the beguinning of this block of code.
+             function loadData() {
+               return myArr;
+             }
 
-for (var i in myArr) {
-  var rowCloned = document.importNode(tmpltBox.content, true);
-  var linkComponent2 = rowCloned.querySelector("h1");
-  linkComponent2.textContent =myArr[i].headername;
-  var linkComponent3 = rowCloned.querySelector("img");
-  linkComponent3.src =myArr[i].headimg;
+             // Let's create some variables using a compact style
+             var bookmarkContainerBoxTemplate = document.querySelector("#bookmarksContainer"),
+                 bookmarkItemTemplate = document.querySelector("#bookmark"),
+                 injectElementRoot = document.querySelector("#divheader"),
+                 bookmarksData = loadData();
 
-  for (var z in myArr[i].myObject) {
-    var itemRowData =  myArr[i].myObject[z];
-    var liCloned = document.importNode(tmplt2.content, true);
-    liCloned.querySelector("span").textContent=itemRowData.name;
-    liCloned.querySelector("a").href=itemRowData.web;
-    liCloned.querySelector("img").src=itemRowData.imagen;
-    rowCloned.querySelector("ul").appendChild(liCloned);
-  }
+             let cloneBookmarkContainerBoxTemplate = (() => {
+                 return document.importNode(bookmarkContainerBoxTemplate.content, true);
+             });
 
-  divheader.appendChild(rowCloned);
-}
-// for (var p in myArr){
-//   var newArr = myArr[p].myObject;
-//
-//   for (var i in newArr) {
-//
-//   var rowCloned = document.importNode(tmplt2.content, true);
-//   var linkComponent = rowCloned.querySelector("a");
-//   linkComponent.textContent = newArr[i].name;
-//   linkComponent.href = newArr[i].web;
-//   //console.log(newArr[i].name);
-//   caja1.appendChild(rowCloned);
-//   }
-// }
+             let cloneBookmarkItemTemplate = (() => {
+                 return document.importNode(bookmarkItemTemplate.content, true);
+             });
 
-} else {
-  console.log("Templates not supported");
-}
-  </script>
-  </body>
+             // This function creates bookmark container object, sets it's attributes and finally returnded
+             // It requires a data object with the following two attributes: headername and heading.
+             let renderBookmarkContainer = ((dataItem) => {
+                 let bookmarkContainer = cloneBookmarkContainerBoxTemplate();
+                 bookmarkContainer.querySelector("h1").textContent = dataItem.headername;
+                 bookmarkContainer.querySelector("img").src = dataItem.headimg;
+                 return bookmarkContainer;
+             });
+
+             // This function creates bookmark item object, sets it's attributes and finally returnded
+             // It requires a data object with the following attributes: name, web and imagen
+             let renderBookmarkItem = ((dataItem) => {
+                 let bookmarkItem = cloneBookmarkItemTemplate();
+                 bookmarkItem.querySelector("span").textContent = dataItem.name;
+                 bookmarkItem.querySelector("a").href = dataItem.web;
+                 bookmarkItem.querySelector("img").src = dataItem.imagen;
+                 return bookmarkItem;
+             });
+
+             // Main function to render the bookmarks
+             var renderContent = (() => {
+                 // Iterate througth the bookmarks categories
+                 for (let categoryIndex in bookmarksData) {
+                     // Create a new bookmark container object.
+                     let bookmarkContainer = renderBookmarkContainer(bookmarksData[categoryIndex]);
+                     // Iterate the bookmarks of a category
+                     for (let bookmarItemIndex in bookmarksData[categoryIndex].myObject) {
+                         // Append the bookmark into a category container
+                         bookmarkContainer.querySelector("ul")
+                             .appendChild(renderBookmarkItem(bookmarksData[categoryIndex].myObject[bookmarItemIndex]));
+                     }
+                     // Append the bookmark container in the inject element root.
+                     injectElementRoot.appendChild(bookmarkContainer);
+                 }
+             });
+
+             // By doing that only the following functions will be "published" as "public" functions.
+             // All the other internal functions will be "internal" and not accesible from the outside.
+             return {
+                 renderContent: renderContent
+             }
+         })();
+
+         if ('content' in document.createElement('template')) {
+             myCoreIndexCode.renderContent();
+         } else {
+             console.log("Templates not supported");
+         }
+      </script>
+   </body>
 </html>
